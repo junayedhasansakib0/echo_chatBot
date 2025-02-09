@@ -123,6 +123,7 @@ body {
 .message.bot .message-text p {
   background-color: #f1f1f1;
   color: #333;
+  margin: 10px 0;
 }
 
 /* User Message Styling */
