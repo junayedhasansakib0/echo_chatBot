@@ -1,0 +1,139 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Chat Container: Grows with content until max-height is reached */
+.chat-container {
+  width: 400px;
+  height: auto; /* Let the container grow naturally */
+  max-height: 500px; /* Maximum height before scrolling is needed */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Hide any overflow; scrolling will occur inside .chat-box */
+}
+
+/* Chat Header */
+.chat-header {
+  background-color: #0078d7;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#delete-btn {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#delete-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Chat Box: Scrollable area for messages */
+.chat-box {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Chat Input */
+.chat-input {
+  display: flex;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+#send-btn {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #0078d7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#send-btn:hover {
+  background-color: #005bb5;
+}
+
+/* Message Styles */
+.message {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Default left alignment */
+}
+
+.message.user {
+  align-items: flex-end; /* Right align user messages */
+}
+
+/* Message Text Container */
+.message .message-text {
+  max-width: 70%; /* Fixed maximum width for message bubble */
+  display: inline-block;
+}
+
+.message .message-text p {
+  margin: 0;
+  padding: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+
+/* Bot Message Styling */
+.message.bot .message-text p {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+/* User Message Styling */
+.message.user .message-text p {
+  background-color: #0078d7;
+  color: #fff;
+}
+
+/* Timestamp Styling */
+.timestamp {
+  font-size: 0.7em;
+  color: #888;
+  margin-top: 5px;
+}
