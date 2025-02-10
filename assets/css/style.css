@@ -10,6 +10,11 @@
   --user-msg-bg: #0078d7;
   --timestamp-color: #888888;
   --icon-color: #ffffff;
+
+  /* Alert Colors */
+  --alert-bg: #fff3cd;
+  --alert-text: #856404;
+  --alert-border: #ffeeba;
 }
 
 /* Dark Theme Overrides */
@@ -23,6 +28,11 @@
   --user-msg-bg: #1e3a5f;
   --timestamp-color: #a0a0a0;
   --icon-color: #e0e0e0;
+
+  /* Dark Theme Alert */
+  --alert-bg: #332d1c;
+  --alert-text: #ffd351;
+  --alert-border: #665c34;
 }
 
 /* ========== GLOBAL STYLES ========== */
@@ -42,7 +52,82 @@ body {
   place-items: center;
 }
 
-/* ========== CHAT CONTAINER ========== */
+/* ========== ALERT POPUP STYLES ========== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: var(--alert-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: var(--alert-text);
+  margin: 1rem;
+  border: 2px solid var(--alert-border);
+  animation: alertEnter 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  text-align: center;
+}
+
+.popup-content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.alert-icon {
+  color: var(--alert-text);
+  font-size: 1.5em;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--alert-text);
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+  opacity: 0.8;
+}
+
+body.popup-active {
+  overflow: hidden;
+}
+
+@keyframes alertEnter {
+  from {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ========== CHAT CONTAINER STYLES ========== */
 .chat-container {
   width: 400px;
   max-height: 600px;

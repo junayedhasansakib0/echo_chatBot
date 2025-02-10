@@ -88,6 +88,8 @@ const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 const deleteBtn = document.getElementById("delete-btn");
 const themeBtn = document.getElementById("theme-btn");
+const popupOverlay = document.getElementById("popup-overlay");
+const closeBtn = document.getElementById("close-btn");
 
 // API Configuration
 const API_ENDPOINT = "https://www.deepseekapp.io/v1/chat/completions";
@@ -121,6 +123,17 @@ const autoSetTheme = () => {
   const isNight = new Date().getHours() >= 19 || new Date().getHours() < 6;
   setTheme(isNight);
   return isNight;
+};
+
+// ===================== POPUP MANAGEMENT =====================
+const showPopup = () => {
+  document.body.classList.add("popup-active");
+  popupOverlay.style.display = "flex";
+};
+
+const closePopup = () => {
+  document.body.classList.remove("popup-active");
+  popupOverlay.style.display = "none";
 };
 
 // ===================== CHAT MANAGEMENT =====================
@@ -205,6 +218,7 @@ const toggleTheme = () => {
 
 // ===================== INITIALIZATION =====================
 const initializeApp = () => {
+  showPopup();
   const savedTheme = localStorage.getItem(THEME_KEY);
   savedTheme ? setTheme(savedTheme === "dark") : autoSetTheme();
   !savedTheme && setInterval(autoSetTheme, 60000);
@@ -219,4 +233,14 @@ userInput.addEventListener(
   "keypress",
   (e) => e.key === "Enter" && handleSend()
 );
+
+// Popup event listeners
+closeBtn.addEventListener("click", closePopup);
+popupOverlay.addEventListener("click", (e) => {
+  if (e.target === popupOverlay) closePopup();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closePopup();
+});
+
 window.addEventListener("load", initializeApp);
