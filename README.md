@@ -1,10 +1,10 @@
 # Echo Bot 🤖
 
-A modern, responsive AI chatbot interface powered by Google's Gemini Pro API. This project implements a clean and user-friendly chat interface that allows users to interact with an AI assistant.
+A modern, responsive AI chatbot interface powered by JHSakib. This project implements a clean and user-friendly chat interface that allows users to interact with an AI assistant.
 
 ## ✨ Features
 
-- Real-time AI responses using Gemini Pro API
+- Real-time AI responses using
 - Clean and responsive UI design
 - Message threading with timestamp support
 - Random welcome greetings
@@ -18,7 +18,6 @@ A modern, responsive AI chatbot interface powered by Google's Gemini Pro API. Th
 - HTML5
 - CSS3
 - JavaScript (ES6+)
-- Google Gemini Pro API
 - Font Awesome Icons
 - Google Fonts (Poppins)
 
@@ -27,7 +26,6 @@ A modern, responsive AI chatbot interface powered by Google's Gemini Pro API. Th
 ### Prerequisites
 
 - A modern web browser
-- Google Gemini Pro API key
 - Basic knowledge of HTML, CSS, and JavaScript
 
 ### Installation
@@ -39,13 +37,7 @@ git clone https://github.com/junayedhasansakib0/echo_chatBot.git
 cd echo_chatBot
 ```
 
-2. Create an account for API key and add your Gemini API key:
-
-```javascript
-const API_KEY = "ADD_YOUR_API_KEY";
-```
-
-3. Open index.html file in your browser.
+2. Open index.html file in your browser.
 
 ## 📁 Project Structure
 
@@ -59,16 +51,6 @@ echo-bot/
 │       └── greetings.js
 ├── index.html
 └── README.md
-```
-
-## 🔧 Configuration
-
-To configure the bot, modify the following constants in `script.js`:
-
-```javascript
-const API_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
-const API_KEY = "your_api_key_here";
 ```
 
 ## 🎨 Features Details
@@ -113,7 +95,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🌟 Acknowledgments
 
-- Google's Gemini Pro API
 - Font Awesome for icons
 - Google Fonts for Poppins font family
 
